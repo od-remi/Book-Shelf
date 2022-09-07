@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBookShelvesTable extends Migration
+class AddImageColumnToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateBookShelvesTable extends Migration
      */
     public function up()
     {
-        Schema::create('book_shelves', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('image', 100)->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ class CreateBookShelvesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_shelves');
+        Schema::table('posts', function (Blueprint $table) {
+            //
+        });
     }
 }
