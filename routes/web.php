@@ -12,3 +12,6 @@
 */
 
 Route::get('/posts', 'PostController@index');
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
